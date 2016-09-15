@@ -18,23 +18,32 @@ function search_omdb(title){
 
 // function to get movie from omdb by id
 function search_omdb_id(id){
+  // get results for id
   $.get("http://www.omdbapi.com/?i=" + id, function(data){
+    // initialize result string
     var result = ''
+    // loop throguh attribute hash and add to result string
     $.each(data,function(key,value){
+      // don't add response/success var
       if(key != 'Response'){
         result += "<p>" + key + " : " + value +"</p>"
       }
     })
+    // render results to page
     $("#result").html(result)
   })
 }
 
-// set onclick function for search button
+// set onclick function for search button - set on load
 $(function(){
+  // onclick function for search
   $('#search-btn').click(function(){
+    // set search term var to val of search box
     var search_term = $('#search-form').val()
+    // if search box empty show alert to fill in
     if(search_term == ''){
       alert('Search form can\'t be blank')
+    // else perform search
     }else{
       search_omdb(search_term)
     }
