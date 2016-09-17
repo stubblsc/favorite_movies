@@ -16,8 +16,8 @@ post '/favorites' do
   unless params[:name] && params[:oid]
     return 'Invalid Request'
   end
-  movie = { name: params[:name], oid: params[:oid], favorite: params[:favorite] }
+  movie = { Title: params[:name], imdbID: params[:oid] }
   file << movie
-  File.write('data.json',JSON.pretty_generate(file))
+  File.write('data.json',JSON.pretty_generate(file.uniq))
   movie.to_json
 end
