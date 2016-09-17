@@ -1,7 +1,7 @@
 // function to search the omdb
 function search_omdb(search, page){
   // get search results
-  $.get("http://www.omdbapi.com/?s=" + search + "&page=" + page.toString(), function(data){
+  $.get("https://www.omdbapi.com/?s=" + search + "&page=" + page.toString(), function(data){
     // initialize result string
     // check if response good
     result = ''
@@ -71,7 +71,7 @@ function generate_table_row_html(key, value, page, is_favorites){
 // function to get movie from omdb by id
 function search_omdb_id(id){
   // get results for id
-  $.get("http://www.omdbapi.com/?i=" + id, function(data){
+  $.get("https://www.omdbapi.com/?i=" + id, function(data){
     // initialize result string
     var result = ''
     // loop throguh attribute hash and add to result string
